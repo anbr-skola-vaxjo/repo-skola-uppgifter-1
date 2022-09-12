@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+// Jag ber om ursäkt i förväg för min förfärliga stavning, jag har dyslexi
 while(true)
 {
     Console.WriteLine(""); Console.WriteLine("");
@@ -8,10 +9,11 @@ while(true)
     Console.WriteLine("program 2) summa och differens");
     Console.WriteLine("program 3) Loop och for uppgifter");
     Console.WriteLine("program 4) medelvärde");
+    Console.WriteLine("program 5) baklänges");
 
     string nr = Console.ReadLine();
     int program;
-    if(nr == "1" || nr == "2" || nr == "3" || nr == "4")
+    if(nr == "1" || nr == "2" || nr == "3" || nr == "4" || nr == "5")
         program = int.Parse(nr);
 
     else if(nr == "exit" || nr == "") 
@@ -108,12 +110,27 @@ while(true)
         if(räkna2 <= 100 || räkna2 >= 1){
             while(räkna2 < 101){
                 Console.WriteLine(räkna2);
-                räkna2 = räkna2 + 1;
+                räkna2++;
             }
             Console.WriteLine("");
         } else {
             Console.WriteLine("Det är inte ett heltal mellan 1 och 100");
         }
+        Console.WriteLine("skriv ett till heltal mellan 1 och 100");
+        
+        int räkna3 = int.Parse(Console.ReadLine());
+        Console.WriteLine("");
+        int index1 = 100;
+        if(räkna3 <= 100 || räkna3 >= 1){
+            while(index1 >= räkna3){
+            Console.WriteLine(index1);
+            index1--;
+            }
+
+        } else {
+            Console.WriteLine("skriv ett till heltal mellan 1 och 100");
+        }
+
     }
 
 
@@ -165,11 +182,43 @@ while(true)
 
 
 
+
+    else if(program == 5) {
+        //baklänges räknand
+        Console.WriteLine(""); Console.WriteLine("");
+        string [] n1;
+        int i1,j1;
+        string input2 = "null";
+        n1 = new string[1000];
+
+        for(i1 = 1;input2 != ""; i1++){
+            input2 = Console.ReadLine();
+            if(input2 != ""){
+            n1[i1] = input2;}
+            if(i1 == 900){
+                Console.WriteLine("Maximalt antal tal");
+                break;
+            }
+        }
+
+        Console.WriteLine("");
+        Console.WriteLine("Tryck enter för att se talen baklänges");
+        Console.ReadLine();
+
+        for (j1 = i1 - 2; j1 > 0; j1--){
+            Console.WriteLine(n1[j1]);
+        }
+        
+
+    }
+
+
+
     else
-        Console.WriteLine("det programmet fins inte, välj ett program mella 1 och 4");
+        Console.WriteLine("det programmet fins inte, välj ett program mella 1 och 5");
     
     Console.WriteLine("");
-    Console.WriteLine("Vill du fortsätta? ja/nej");
+    Console.WriteLine("Vill du fortsätta? ja / nej");
 
     string slutfråga = Console.ReadLine();
     if (slutfråga == "ja" || slutfråga == "Ja"){
