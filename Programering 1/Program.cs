@@ -10,10 +10,11 @@ while(true)
     Console.WriteLine("program 3) Loop och for uppgifter");
     Console.WriteLine("program 4) medelvärde");
     Console.WriteLine("program 5) baklänges");
+    Console.WriteLine("program 6) Tic - tac -toe");
 
     string nr = Console.ReadLine();
     int program;
-    if(nr == "1" || nr == "2" || nr == "3" || nr == "4" || nr == "5")
+    if(nr == "1" || nr == "2" || nr == "3" || nr == "4" || nr == "5" || nr == "6")
         program = int.Parse(nr);
 
     else if(nr == "exit" || nr == "") 
@@ -184,8 +185,9 @@ while(true)
 
 
     else if(program == 5) {
-        //baklänges räknand
+        //baklänges räknande
         Console.WriteLine(""); Console.WriteLine("");
+        Console.WriteLine("Skrv saker som du vill ha upprepat baklänges");
         string [] n1;
         int i1,j1;
         string input2 = "null";
@@ -196,13 +198,13 @@ while(true)
             if(input2 != ""){
             n1[i1] = input2;}
             if(i1 == 900){
-                Console.WriteLine("Maximalt antal tal");
+                Console.WriteLine("Maximalt antal rader");
                 break;
             }
         }
 
         Console.WriteLine("");
-        Console.WriteLine("Tryck enter för att se talen baklänges");
+        Console.WriteLine("Tryck enter för att se baklänges");
         Console.ReadLine();
 
         for (j1 = i1 - 2; j1 > 0; j1--){
@@ -214,8 +216,78 @@ while(true)
 
 
 
+
+    else if (program == 6) {
+        //Tic - tac - toe
+        Console.WriteLine(""); Console.WriteLine("");
+        Console.WriteLine("Tic - tac - toe"); Console.WriteLine("");
+
+        char[,] bräde1 = new char[,]{   {'-','-','-'},
+                                        {'-','-','-'},
+                                        {'-','-','-'} };
+        
+   
+        Console.WriteLine("      1   2   3"); Console.WriteLine("     ___________");
+        for(int j2 = 0; j2 < bräde1.GetLength(0); j2++)
+        { 
+            Console.WriteLine("{0}   | {1}   {2}   {3} |", j2+1, bräde1[j2,0], bräde1[j2,1], bräde1[j2,2]);
+            if(j2<2)
+                Console.WriteLine("    |           |");
+            else
+             Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
+        }
+
+        int binärräknare1 = 1;
+        int x1,y1;
+
+        while(true)
+        {
+            binärräknare1 = binärräknare1 - binärräknare1 * 2;
+            while(true){
+                x1 = int.Parse(Console.ReadLine())-1; 
+                y1 = int.Parse(Console.ReadLine())-1;
+                Console.WriteLine();
+                if(bräde1[x1,y1] == '-'){
+                    if(binärräknare1 == -1){
+                        bräde1[x1,y1] = 'x';
+                    }else
+                        bräde1[x1,y1] = 'o';
+                    Console.WriteLine();
+                    break;    
+                }else
+                    Console.WriteLine("den rutan är upptagen, välj en annan");
+                
+            }
+
+            
+
+            Console.WriteLine("      1   2   3"); Console.WriteLine("     ___________");
+            for(int i2 = 0; i2 < bräde1.GetLength(0); i2++)
+            {    
+                
+                Console.WriteLine("{0}   | {1}   {2}   {3} |", i2+1, bräde1[0,i2], bräde1[1,i2], bräde1[2,i2]);
+                if(i2<2)
+                    Console.WriteLine("    |           |");
+                else
+                    Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
+                                    
+            }
+
+            for(int i2 = 0; i2 < 0; i2++){
+                //wincondition
+            }
+                
+            
+
+        }
+
+    }
+
+
+
+
     else
-        Console.WriteLine("det programmet fins inte, välj ett program mella 1 och 5");
+        Console.WriteLine("det programmet fins inte, välj ett program mella 1 och 6");
     
     Console.WriteLine("");
     Console.WriteLine("Vill du fortsätta? ja / nej");
