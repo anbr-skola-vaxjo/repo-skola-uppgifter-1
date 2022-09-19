@@ -238,7 +238,10 @@ while(true)
         }
 
         int binärräknare1 = 1;
-        int x1,y1;
+        int x1, y1;
+        bool Xwin = false;
+        bool Owin = false;
+        bool draw1 = false;
 
         while(true)
         {
@@ -272,10 +275,71 @@ while(true)
                     Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
                                     
             }
+            int i = 0;
 
-            for(int i2 = 0; i2 < 0; i2++){
-                //wincondition
+            for(int i2 = 0; i2 <  bräde1.GetLength(0); i2++){
+                if(bräde1[0,i2] != '-' && bräde1[1,i2] != '-' && bräde1[2,i2] != '-'){
+                    i++;
+                }
+                if(i == 3)
+                    draw1 = true;
+                
+
             }
+
+            for(int i2 = 0; i2 < 6; i2++){
+                //wincondition X
+                if(i2<3){
+                    if(bräde1[0,i2] == 'x' && bräde1[1,i2] == 'x' && bräde1[2,i2] == 'x')
+                        Xwin = true;
+                }else{
+                    if(bräde1[i2-3,0] == 'x' && bräde1[i2-3,1] == 'x' && bräde1[i2-3,2] == 'x')
+                        Xwin = true;
+                }
+            for(int j2 = 0; j2 < 6; j2++){
+                //wincondition O
+                if(j2<3){
+                    if(bräde1[0,j2] == 'o' && bräde1[1,j2] == 'o' && bräde1[2,j2] == 'o')
+                        Owin = true;
+                }else{
+                    if(bräde1[j2-3,0] == 'o' && bräde1[j2-3,1] == 'o' && bräde1[j2-3,2] == 'o')
+                        Owin = true;
+                }    
+            }
+            i = 0;
+
+            for(int j2 = 0; j2 < 6; j2++){
+                if(j2<3)
+                {
+                    if(bräde1[j2,j2] == 'x')
+                        i++;
+                }
+                if(i == 3)
+                    Xwin = true;
+            }
+            i = 0;
+            for(int j2 = 0; j2 < 6; j2++){
+                if(j2<3)
+                {
+                    if(bräde1[j2,j2] == 'o')
+                        i++;
+                }
+                if(i == 3)
+                    Owin = true;
+            }
+
+            }
+            if(Xwin == true){
+                Console.WriteLine("X har vunnit");
+                break;
+            } else if(Owin == true){
+                Console.WriteLine("O har vunnit");
+                break;
+            } else if (draw1 == true){
+                Console.WriteLine("ingen har vunnit");
+                break;
+            }
+
                 
             
 
