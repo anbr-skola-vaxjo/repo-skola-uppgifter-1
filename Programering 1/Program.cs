@@ -220,131 +220,166 @@ while(true)
     else if (program == 6) {
         //Tic - tac - toe
         Console.WriteLine(""); Console.WriteLine("");
-        Console.WriteLine("Tic - tac - toe"); Console.WriteLine("");
+        Console.WriteLine("Tic - tac - toe");Console.WriteLine();Console.WriteLine("skriv x kordinaten först sedan y");
+        int Xpoäng = 0;
+        int Opoäng = 0;
+        do{
+            Console.WriteLine("");
 
-        char[,] bräde1 = new char[,]{   {'-','-','-'},
-                                        {'-','-','-'},
-                                        {'-','-','-'} };
-        
-   
-        Console.WriteLine("      1   2   3"); Console.WriteLine("     ___________");
-        for(int j2 = 0; j2 < bräde1.GetLength(0); j2++)
-        { 
-            Console.WriteLine("{0}   | {1}   {2}   {3} |", j2+1, bräde1[j2,0], bräde1[j2,1], bräde1[j2,2]);
-            if(j2<2)
-                Console.WriteLine("    |           |");
-            else
-             Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
-        }
-
-        int binärräknare1 = 1;
-        int x1, y1;
-        bool Xwin = false;
-        bool Owin = false;
-        bool draw1 = false;
-
-        while(true)
-        {
-            binärräknare1 = binärräknare1 - binärräknare1 * 2;
-            while(true){
-                x1 = int.Parse(Console.ReadLine())-1; 
-                y1 = int.Parse(Console.ReadLine())-1;
-                Console.WriteLine();
-                if(bräde1[x1,y1] == '-'){
-                    if(binärräknare1 == -1){
-                        bräde1[x1,y1] = 'x';
-                    }else
-                        bräde1[x1,y1] = 'o';
-                    Console.WriteLine();
-                    break;    
-                }else
-                    Console.WriteLine("den rutan är upptagen, välj en annan");
-                
-            }
-
+            char[,] bräde1 = new char[,]{   {'-','-','-'},
+                                            {'-','-','-'},
+                                            {'-','-','-'} };
             
-
+    
             Console.WriteLine("      1   2   3"); Console.WriteLine("     ___________");
-            for(int i2 = 0; i2 < bräde1.GetLength(0); i2++)
-            {    
-                
-                Console.WriteLine("{0}   | {1}   {2}   {3} |", i2+1, bräde1[0,i2], bräde1[1,i2], bräde1[2,i2]);
-                if(i2<2)
+            for(int j2 = 0; j2 < bräde1.GetLength(0); j2++)
+            { 
+                Console.WriteLine("{0}   | {1}   {2}   {3} |", j2+1, bräde1[j2,0], bräde1[j2,1], bräde1[j2,2]);
+                if(j2<2)
                     Console.WriteLine("    |           |");
                 else
-                    Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
-                                    
+                Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
             }
-            int i = 0;
 
-            for(int i2 = 0; i2 <  bräde1.GetLength(0); i2++){
-                if(bräde1[0,i2] != '-' && bräde1[1,i2] != '-' && bräde1[2,i2] != '-'){
-                    i++;
+            int binärräknare1 = 1;
+            int x1, y1;
+            bool Xwin = false;
+            bool Owin = false;
+            bool draw1 = false;
+
+            while(true)
+            {
+                binärräknare1 = binärräknare1 - binärräknare1 * 2;
+                string xellero;
+                while(true){
+                    if(binärräknare1 == -1)
+                    {
+                        xellero = "x";
+                    }
+                    else 
+                    {
+                        xellero = "o";
+                    }
+                    Console.WriteLine("Det är spelare {0}'s tur", xellero);
+                    x1 = int.Parse(Console.ReadLine())-1; 
+                    y1 = int.Parse(Console.ReadLine())-1;
+                    Console.WriteLine();
+                    if(bräde1[x1,y1] == '-'){
+                        if(binärräknare1 == -1){
+                            bräde1[x1,y1] = 'x';
+                        }else
+                            bräde1[x1,y1] = 'o';
+                        Console.WriteLine();
+                        break;    
+                    }else
+                        Console.WriteLine("den rutan är upptagen, välj en annan");
+                    
                 }
-                if(i == 3)
-                    draw1 = true;
+
                 
 
-            }
-
-            for(int i2 = 0; i2 < 6; i2++){
-                //wincondition X
-                if(i2<3){
-                    if(bräde1[0,i2] == 'x' && bräde1[1,i2] == 'x' && bräde1[2,i2] == 'x')
-                        Xwin = true;
-                }else{
-                    if(bräde1[i2-3,0] == 'x' && bräde1[i2-3,1] == 'x' && bräde1[i2-3,2] == 'x')
-                        Xwin = true;
+                Console.WriteLine("      1   2   3"); Console.WriteLine("     ___________");
+                for(int i2 = 0; i2 < bräde1.GetLength(0); i2++)
+                {    
+                    
+                    Console.WriteLine("{0}   | {1}   {2}   {3} |", i2+1, bräde1[0,i2], bräde1[1,i2], bräde1[2,i2]);
+                    if(i2<2)
+                        Console.WriteLine("    |           |");
+                    else
+                        Console.WriteLine("     ¯¯¯¯¯¯¯¯¯¯¯");
+                                        
                 }
-            for(int j2 = 0; j2 < 6; j2++){
-                //wincondition O
-                if(j2<3){
-                    if(bräde1[0,j2] == 'o' && bräde1[1,j2] == 'o' && bräde1[2,j2] == 'o')
-                        Owin = true;
-                }else{
-                    if(bräde1[j2-3,0] == 'o' && bräde1[j2-3,1] == 'o' && bräde1[j2-3,2] == 'o')
-                        Owin = true;
-                }    
-            }
-            i = 0;
+                int i = 0;
 
-            for(int j2 = 0; j2 < 6; j2++){
-                if(j2<3)
-                {
+                for(int i2 = 0; i2 <  bräde1.GetLength(0); i2++){
+                    if(bräde1[0,i2] != '-' && bräde1[1,i2] != '-' && bräde1[2,i2] != '-'){
+                        i++;
+                    }
+                    if(i == 3)
+                        draw1 = true;
+                    
+
+                }
+
+                for(int i2 = 0; i2 < 6; i2++){ 
+                    //wincondition X
+                    if(i2<3){
+                        if(bräde1[0,i2] == 'x' && bräde1[1,i2] == 'x' && bräde1[2,i2] == 'x')
+                            Xwin = true;
+                    }else{
+                        if(bräde1[i2-3,0] == 'x' && bräde1[i2-3,1] == 'x' && bräde1[i2-3,2] == 'x')
+                            Xwin = true;
+                    }
+                for(int j2 = 0; j2 < 6; j2++){
+                    //wincondition O
+                    if(j2<3){
+                        if(bräde1[0,j2] == 'o' && bräde1[1,j2] == 'o' && bräde1[2,j2] == 'o')
+                            Owin = true;
+                    }else{
+                        if(bräde1[j2-3,0] == 'o' && bräde1[j2-3,1] == 'o' && bräde1[j2-3,2] == 'o')
+                            Owin = true;
+                    }    
+                }
+                i = 0;
+
+                for(int j2 = 0; j2 < 3; j2++){ 
                     if(bräde1[j2,j2] == 'x')
                         i++;
+                    
+                    if(i == 3)
+                        Xwin = true;
                 }
-                if(i == 3)
-                    Xwin = true;
-            }
-            i = 0;
-            for(int j2 = 0; j2 < 6; j2++){
-                if(j2<3)
-                {
+                i = 0;
+                for(int j2 = 0; j2 < 3; j2++){
                     if(bräde1[j2,j2] == 'o')
                         i++;
+                    if(i == 3)
+                        Owin = true;
                 }
-                if(i == 3)
-                    Owin = true;
+                i = 0;
+                for(int j2 = 0; j2 < 3; j2++){
+                    if(bräde1[j2,2-j2] == 'o')
+                        i++;
+                    if(i == 3)
+                        Owin = true;
+                }
+                i = 0;
+                for(int j2 = 0; j2 < 3; j2++){
+                    if(bräde1[j2,2-j2] == 'x')
+                        i++;
+                    if(i == 3)
+                        Xwin = true;
+                } //jag vet att det här är väldigt ineffektivt, men jag orkar inte optimera det
+
+
+                }
+                if(Xwin == true){
+                    Xpoäng++;
+                    Console.WriteLine("X har vunnit");
+                    Console.WriteLine("X:{0}",Xpoäng);
+                    Console.WriteLine("O:{0}",Opoäng);
+                    break;
+                } else if(Owin == true){
+                    Opoäng++;
+                    Console.WriteLine("O har vunnit");
+                    Console.WriteLine("X:{0}",Xpoäng);
+                    Console.WriteLine("O:{0}",Opoäng);
+                    break;
+                } else if (draw1 == true){
+                    Console.WriteLine("ingen har vunnit");
+                    Console.WriteLine("X:{0}",Xpoäng);
+                    Console.WriteLine("O:{0}",Opoäng);
+                    break;
+                }
             }
-
+            Console.WriteLine();Console.WriteLine("vill du fortsätta spela tic-tac-toe? ja/nej");
+            string slutfråga1 = Console.ReadLine();
+            if(slutfråga1 == "nej" || slutfråga1 == "Nej"){
+                break;
+            } else if(slutfråga1 == "ja" || slutfråga1 == "Ja"){} else{
+                Console.WriteLine("det var dessvärre inte ett förväntat komando, så jag kommer att anta att du vill fortsätta spela");
             }
-            if(Xwin == true){
-                Console.WriteLine("X har vunnit");
-                break;
-            } else if(Owin == true){
-                Console.WriteLine("O har vunnit");
-                break;
-            } else if (draw1 == true){
-                Console.WriteLine("ingen har vunnit");
-                break;
-            }
-
-                
-            
-
-        }
-
+        }while(true);
     }
 
 
@@ -354,7 +389,7 @@ while(true)
         Console.WriteLine("det programmet fins inte, välj ett program mella 1 och 6");
     
     Console.WriteLine("");
-    Console.WriteLine("Vill du fortsätta? ja / nej");
+    Console.WriteLine("Vill du köra något annat program? ja / nej");
 
     string slutfråga = Console.ReadLine();
     if (slutfråga == "ja" || slutfråga == "Ja"){

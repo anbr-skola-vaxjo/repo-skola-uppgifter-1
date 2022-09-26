@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anbr05001\\OneDrive - Växjö kommun\\Documents\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj": {}
+    "C:\\Kod och programering\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anbr05001\\OneDrive - Växjö kommun\\Documents\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj": {
+    "C:\\Kod och programering\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anbr05001\\OneDrive - Växjö kommun\\Documents\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj",
+        "projectUniqueName": "C:\\Kod och programering\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj",
         "projectName": "Programering 1",
-        "projectPath": "C:\\Users\\anbr05001\\OneDrive - Växjö kommun\\Documents\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj",
+        "projectPath": "C:\\Kod och programering\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\Programering 1.csproj",
         "packagesPath": "C:\\Users\\anbr05001\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anbr05001\\OneDrive - Växjö kommun\\Documents\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\obj\\",
+        "outputPath": "C:\\Kod och programering\\GitHub\\repo-skola-uppgifter-1\\Programering 1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anbr05001\\AppData\\Roaming\\NuGet\\NuGet.Config"
