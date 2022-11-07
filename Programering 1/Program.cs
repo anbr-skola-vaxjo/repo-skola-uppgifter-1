@@ -17,7 +17,7 @@ static void main()
         Console.WriteLine("program 4) medelvärde");
         Console.WriteLine("program 5) baklänges");
         Console.WriteLine("program 6) Tic - tac -toe");
-        Console.WriteLine("program 7) Metoder2");
+        Console.WriteLine("program 7) Metoder2 (potens)");
 
         string nr = Console.ReadLine();
         int program;
@@ -407,12 +407,14 @@ static void main()
 
 
         else if(program == 7){
-            //metoder2
+            //metoder2 (potens)
             Console.WriteLine();
             Console.WriteLine("potens");
             double a = double.Parse(Console.ReadLine());
+            Console.WriteLine("Upphöjt till:");
             int b = int.Parse(Console.ReadLine());
             Console.WriteLine();
+            Console.Write("{0}^({1}) = ", a, b);
             Console.WriteLine(power(a,b));
         }
 
@@ -470,15 +472,18 @@ static double power(double a, int b)
         }
         pow = a2;
     }
-    else{}
     if(a > 0)
     {
         return pow;
     
     }
-    else if(a < 0)
+    else if(a < 0 && b % 2 == 0)
     {
         return -pow;
+    }
+    else if(a < 0 && b % 2 != 0)
+    {
+        return pow;
     }
     else
     {
