@@ -18,10 +18,11 @@ static void main()
         Console.WriteLine("program 5) baklänges");
         Console.WriteLine("program 6) Tic - tac -toe");
         Console.WriteLine("program 7) Metoder2 (potens)");
+        Console.WriteLine("program 8) math?");
 
         string nr = Console.ReadLine();
         int program;
-        if(nr == "1" || nr == "2" || nr == "3" || nr == "4" || nr == "5" || nr == "6" || nr == "7")
+        if(nr == "1" || nr == "2" || nr == "3" || nr == "4" || nr == "5" || nr == "6" || nr == "7" || nr == "8")
             program = int.Parse(nr);
 
         else if(nr == "exit" || nr == "") 
@@ -416,6 +417,46 @@ static void main()
             Console.WriteLine();
             Console.Write("{0}^({1}) = ", a, b);
             Console.WriteLine(power(a,b));
+        }
+
+
+
+
+        else if(program == 8)
+        //sentence or math
+        {
+            List<string> SentenceList = new List<string>();
+            string sentence = "";
+            string checksentence = "";
+            string key = "";
+            int i = 0;
+            
+            Console.WriteLine();
+            while(true)
+            {
+                key = "" + Console.ReadKey().Key;
+                if(key.Length == 1){
+                    sentence = sentence + key;
+                    i++;
+                }
+                else
+                {
+                    SentenceList.Add(checksentence);
+                    sentence = sentence + " " + key + " ";
+                }
+                checksentence = sentence.ToLower();
+                
+                if(checksentence.Contains("stop"))
+                {
+                    Console.WriteLine(); Console.WriteLine(checksentence); Console.WriteLine();
+                    foreach (string element in SentenceList)
+                    {
+                        Console.WriteLine(element);
+                    }
+                    break;
+                }
+            }
+            
         }
 
 
